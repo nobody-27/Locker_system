@@ -13,8 +13,9 @@ def check_pin_for(function):
         # else:
         #     print("user is not superuser")
         #     return redirect('pin')
-
-
+        """
+        here we check user have session id or not 
+        """
         return function(request, *args, **kwargs)
     wrap.__doc__ = function.__doc__
     wrap.__name__ = function.__name__

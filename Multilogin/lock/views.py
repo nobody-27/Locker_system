@@ -4,6 +4,8 @@ from django.contrib.auth import (
     login, 
     logout
 )
+from django.contrib.sessions.models import Session
+from django.contrib.sessions.backends.db import SessionStore
 from . decorators import check_pin_for
 from django.contrib.auth.decorators import login_required
 from lock.models import User
