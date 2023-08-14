@@ -36,13 +36,24 @@ def my_phontos(request):
 
 @login_required
 def add_pin(request):
+    error = {}
     if request.method == "POST":
         pin_code = request.POST.get('pin')
         try:
-            user_pin = User.objects.get(id= request.user.id,pin_password = pin_code)
+            user_pin = User.objects.get(id=request.user.id,pin_password = pin_code)
         except:
+            print("you have enter wrong pin")
             user_pin = None
         if user_pin is not None:
-            request.session['session_name'] = 'neeraj'
+            request.session['session_id_data'] = request.user.id
             return redirect('my_phontos')
-    return render(request,'lock/security.html')
+    context = {}
+    return render(request,'lock/security.html',context)
+
+
+def remove_session(request):
+    try:
+        del request.session['session_id_data']
+    except  KeyError:
+        pass
+    return redirect("home")
