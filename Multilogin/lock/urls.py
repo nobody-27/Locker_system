@@ -7,5 +7,5 @@ urlpatterns = [
     path('my_phontos/',views.my_phontos,name="my_phontos"),
     path('pin/',views.add_pin,name="pin"),
     path('remove_session_pin/',views.remove_session,name="remove"),
-    
+    path('about/',views.about,name="about")
 ]

@@ -22,7 +22,7 @@ def login_data(request):
             return redirect('home')
     return render(request,'lock/login.html')
 
-@login_required
+# @login_required
 def home(request):
     return render(request,"lock/home.html")
 
@@ -34,7 +34,7 @@ def logout_of_site(request):
 def my_phontos(request):
     return render(request,'lock/Gallery.html')
 
-@login_required
+# @login_required
 def add_pin(request):
     error = {}
     if request.method == "POST":
@@ -57,3 +57,9 @@ def remove_session(request):
     except  KeyError:
         pass
     return redirect("home")
+
+from django.http import HttpResponseRedirect,HttpResponse,HttpRequest
+
+def about(request):
+
+    return HttpResponse("about page")

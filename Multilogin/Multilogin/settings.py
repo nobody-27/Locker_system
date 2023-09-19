@@ -35,6 +35,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'Multilogin.middleware.EnforceLoginMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -116,3 +117,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'lock.User'
 
 LOGIN_URL = 'login'
+
+
+PUBLIC_URLS = [
+    r'^logout/', 
+    r'^login/', 
+    r'^admin/',
+    r'^about/'
+]
