@@ -1,0 +1,11 @@
+venv
+*.log
+*.pot
+*.pyc
+.idea/*
+__pycache__/
+db.sqlite3
+**/migrations/*
+!**/migrations
+!**/migrations/__init__.py
+tracker/tracker/local_settings.py
